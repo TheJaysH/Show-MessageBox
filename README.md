@@ -33,7 +33,7 @@ This is a utility to invoke a Windows MessageBox with specified criteria.
 
 ### Example Usage:
 ```
-WinFormDialogTes.exe --title "Dialog Title" --message "This is a message box" --buttons "YesNo" --icon "Information"
+WinFormDialogTest.exe --title "Dialog Title" --message "This is a message box" --buttons "YesNo" --icon "Information"
 ```
 ### Resulting Dialog:
 
