@@ -1,7 +1,7 @@
 # WinFormDialogTest
 This is a utility to invoke a Windows MessageBox with specified criteria.
 
-![Image](/Bin/Images/MainWindow.png "Optional title attribute")
+![Image](/Bin/Images/MainWindow.png "the default GUI")
 
 ## CommandLine Args
 
@@ -35,3 +35,5 @@ This is a utility to invoke a Windows MessageBox with specified criteria.
 ```
 WinFormDialogTes.exe --title "Dialog Title" --message "This is a message box" --buttons "YesNo" --icon "Information"
 ```
+Result:
+![Image](/Bin/Images/TestDialog_CommandLine.png "the default GUI")
