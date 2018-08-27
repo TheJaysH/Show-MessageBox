@@ -15,8 +15,7 @@ namespace WinFormDialogTest
     {
         public Form1()
         {
-            InitializeComponent();
-
+            InitializeComponent();        
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,10 +35,20 @@ namespace WinFormDialogTest
             ShowMessageBox(title, message, buttons, icon);
         }
 
-        public static void ShowMessageBox(string title, string message, MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxIcon icon = MessageBoxIcon.None)
+        /// <summary>
+        /// Show the MessageBox with the specified values
+        /// 
+        /// INFO: Application ExitCode will be DialogResult if ran from command-line.
+        /// </summary>
+        /// <param name="title">Title of the MessageBox</param>
+        /// <param name="message">Message within the MessageBox</param>
+        /// <param name="buttons">Buttons to use with MessageBox</param>
+        /// <param name="icon">Icon to be displayed</param>
+        public static void ShowMessageBox(string title, string message, MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxIcon icon = MessageBoxIcon.None, bool commandLine = false)
         {
-            var result = MessageBox.Show(message, title, buttons, icon);
-            Debug.WriteLine(result);
+            var result = MessageBox.Show(message, title, buttons, icon);            
+            if (commandLine)
+                Environment.Exit((int)result);
         }
 
         public static MessageBoxButtons GetButtons(string value)

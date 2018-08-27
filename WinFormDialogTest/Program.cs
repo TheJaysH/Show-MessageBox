@@ -109,7 +109,7 @@ namespace WinFormDialogTest
                 i++;
             }
 
-            Form1.ShowMessageBox(title, message, buttons, icon);
+            Form1.ShowMessageBox(title, message, buttons, icon, true);
         }
     }
 }
