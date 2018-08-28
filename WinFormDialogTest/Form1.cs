@@ -47,9 +47,8 @@ namespace WinFormDialogTest
         }
 
         /// <summary>
-        /// Show the MessageBox with the specified values
-        /// 
-        /// INFO: Application ExitCode will be DialogResult if ran from command-line.
+        /// Show the MessageBox with the specified values 
+        /// Application ExitCode will be DialogResult if ran from command-line.
         /// </summary>
         /// <param name="title">Title of the MessageBox</param>
         /// <param name="message">Message within the MessageBox</param>
