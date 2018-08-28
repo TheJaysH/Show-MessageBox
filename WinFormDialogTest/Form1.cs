@@ -67,6 +67,7 @@ namespace WinFormDialogTest
         /// </summary>
         /// <param name="value"></param>
         /// <returns>MessageBoxButtons</returns>
+        [Obsolete("GetButtons is deprecated, please use GetEnum<TEnum> instead.")]
         public static MessageBoxButtons GetButtons(string value)
         {
             return Enum.TryParse(value, out MessageBoxButtons buttons) ? buttons : MessageBoxButtons.OK;
@@ -77,6 +78,7 @@ namespace WinFormDialogTest
         /// </summary>
         /// <param name="value"></param>
         /// <returns>MessageBoxIcon</returns>
+        [Obsolete("GetIcon is deprecated, please use GetEnum<TEnum> instead.")]
         public static MessageBoxIcon GetIcon(string value)
         {
             return Enum.TryParse(value, out MessageBoxIcon icon) ? icon : MessageBoxIcon.None;
