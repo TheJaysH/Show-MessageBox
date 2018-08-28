@@ -8,10 +8,8 @@ Also supports command line args
 
 * ```--title, -t```
   * Title of the MessageBox
-  * **REQUIRED**  
 * ```--message, -m```
-  * Message within the MessageBox 
-  * **REQUIRED**  
+  * Message within the MessageBox
 * ```--buttons, -b```
   *  Buttons to display
   * Allowed Values:
