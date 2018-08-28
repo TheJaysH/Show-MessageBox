@@ -64,7 +64,7 @@ namespace WinFormDialogTest
 
         /// <summary>
         /// Takes the args array and parses it.
-        /// First checks to ensure its an even ammount.
+        /// First checks to ensure it's an even ammount.
         /// Then loop through in 2's getting the key and value
         /// if a key is found that does not match the AllowedParams array it will thow an exception
         /// </summary>
@@ -73,7 +73,7 @@ namespace WinFormDialogTest
         {
             if ((args.Count() % 2) != 0)
             {
-                throw new Exception("Arguments supplied do not have values assigned. Please check arguments.");
+                throw new Exception("Arguments supplied do not have assigned values. Please check argument(s).");
             }
 
             var title = string.Empty;
@@ -82,7 +82,7 @@ namespace WinFormDialogTest
             MessageBoxButtons buttons = MessageBoxButtons.OK;
             MessageBoxIcon icon = MessageBoxIcon.None;
 
-            for (int i = 0; i < args.Count(); i++)
+            for (int i = 0; i < args.Count(); i+=2)
             {
                 var key = args[i];
                 var value = args[i + 1];
@@ -96,7 +96,6 @@ namespace WinFormDialogTest
 
                     switch (key)
                     {
-
                         case "--title":
                         case "-t":
                             title = value;
@@ -110,14 +109,14 @@ namespace WinFormDialogTest
                             if (AllowedButtons.Contains(value))
                                 buttons = Form1.GetEnum<MessageBoxButtons>(value);
                             else
-                                throw new Exception($"MessageBoxButton not found for: '{value}'");
+                                throw new Exception($"`{value}` is not a valid MessageBoxButton");
                             break;
                         case "--icon":
                         case "-i":
                             if (AllowedIcons.Contains(value))
                                 icon = Form1.GetEnum<MessageBoxIcon>(value);
                             else
-                                throw new Exception($"MessageBoxIcon not found for: '{value}'");
+                                throw new Exception($"`{value}` is not a valid MessageBoxIcon");
                             break;
                         default:
                             throw new NotImplementedException($"Paramater `{key}` not implimented!");
@@ -127,8 +126,6 @@ namespace WinFormDialogTest
                 {
                     throw new Exception($"Paramater not recognised: '{key}'");
                 }
-
-                i++;
             }
 
             Form1.ShowMessageBox(title, message, buttons, icon, true);
