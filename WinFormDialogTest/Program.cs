@@ -96,6 +96,7 @@ namespace WinFormDialogTest
 
                     switch (key)
                     {
+
                         case "--title":
                         case "-t":
                             title = value;
