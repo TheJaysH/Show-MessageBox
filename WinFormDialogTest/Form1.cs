@@ -18,19 +18,30 @@ namespace WinFormDialogTest
             InitializeComponent();        
         }
 
+        /// <summary>
+        /// Form Load event, set the initial values for the combo boxes to 0
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox_Icon.SelectedIndex = 0;
             comboBox_Buttons.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Show button clicked.
+        /// Call ShowMessageBox() with the vlaues populated in the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Show_Click(object sender, EventArgs e)
         {
             var title = textBox_Title.Text;
             var message = textBox_Message.Text;
 
-            var buttons = GetButtons(comboBox_Buttons.SelectedItem.ToString());
-            var icon = GetIcon(comboBox_Icon.SelectedItem.ToString());
+            var buttons = GetEnum<MessageBoxButtons>(comboBox_Buttons.SelectedItem.ToString());
+            var icon = GetEnum<MessageBoxIcon>(comboBox_Icon.SelectedItem.ToString());
 
             ShowMessageBox(title, message, buttons, icon);
         }
@@ -51,14 +62,35 @@ namespace WinFormDialogTest
                 Environment.Exit((int)result);
         }
 
+        /// <summary>
+        /// Takes a string vlaue, and returns that matching enum
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>MessageBoxButtons</returns>
         public static MessageBoxButtons GetButtons(string value)
         {
             return Enum.TryParse(value, out MessageBoxButtons buttons) ? buttons : MessageBoxButtons.OK;
         }
 
+        /// <summary>
+        /// Takes a string vlaue, and returns that matching enum
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>MessageBoxIcon</returns>
         public static MessageBoxIcon GetIcon(string value)
         {
             return Enum.TryParse(value, out MessageBoxIcon icon) ? icon : MessageBoxIcon.None;
+        }
+
+        /// <summary>
+        /// Generic class to retrun matching enum
+        /// </summary>
+        /// <typeparam name="TEnum"></typeparam>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static TEnum GetEnum<TEnum>(string value) where TEnum : struct
+        {
+            return Enum.TryParse(value, out TEnum t) ? t : t;
         }
 
     }

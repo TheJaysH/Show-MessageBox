@@ -18,10 +18,15 @@ namespace WinFormDialogTest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (args.Count() > 0) ParseArgs(args);
-            else Application.Run(new Form1());
+            if (args.Count() == 0)
+                Application.Run(new Form1());
+            else
+                ParseArgs(args); 
         }
 
+        /// <summary>
+        /// This is an array if the supported paramaters
+        /// </summary>
         private static string[] Params = new string[]
         {
             "--title"   ,"-t",
@@ -30,6 +35,9 @@ namespace WinFormDialogTest
             "--buttons" ,"-b",
         };
 
+        /// <summary>
+        /// This is an array of the buttons allowed by enum name
+        /// </summary>
         private static string[] AllowedButtons = new string[]
         {
             "OK",
@@ -40,6 +48,9 @@ namespace WinFormDialogTest
             "RetryCancel",
         };
 
+        /// <summary>
+        /// This is an array of the icons allowed by enum name
+        /// </summary>
         private static string[] AllowedIcons = new string[]
         {
             "None",
@@ -53,6 +64,14 @@ namespace WinFormDialogTest
             "Information",
         };
 
+
+        /// <summary>
+        /// Takes the args array and parses it.
+        /// First checks to ensure its an even ammount.
+        /// Then loop through in 2's getting the key and value
+        /// if a key is found that does not match the AllowedParams array it will thow an exception
+        /// </summary>
+        /// <param name="args"></param>
         private static void ParseArgs(string[] args)
         {
             if ((args.Count() % 2) != 0)
@@ -86,14 +105,14 @@ namespace WinFormDialogTest
                         case "--buttons":
                         case "-b":
                             if (AllowedButtons.Contains(value))
-                                buttons = Form1.GetButtons(value);
+                                buttons = Form1.GetEnum<MessageBoxButtons>(value);
                             else
                                 throw new Exception($"MessageBoxButton not found for: '{value}'");
                             break;
                         case "--icon": 
                         case "-i":
                             if (AllowedIcons.Contains(value))
-                                icon = Form1.GetIcon(value);
+                                icon = Form1.GetEnum<MessageBoxIcon>(value);
                             else
                                 throw new Exception($"MessageBoxIcon not found for: '{value}'");                          
                             break;
