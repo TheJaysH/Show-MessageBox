@@ -1,5 +1,6 @@
 # WinFormDialogTest
 This is a utility to invoke a Windows MessageBox with specified criteria.
+Also supports command line args
 
 ![Image](/Bin/Images/MainWindow.png "the default GUI")
 
