@@ -7,7 +7,7 @@
     <ProjectGuid>{98473E86-B829-4B25-B546-33FF0DC052A6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WinFormDialogTest</RootNamespace>
-    <AssemblyName>WinFormDialogTest</AssemblyName>
+    <AssemblyName>ShowMessageBox</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
