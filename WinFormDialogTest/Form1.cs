@@ -7,7 +7,7 @@ namespace WinFormDialogTest
     {
         public Form1()
         {
-            InitializeComponent();        
+            InitializeComponent();
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace WinFormDialogTest
         /// <param name="icon">Icon to be displayed</param>
         public static void ShowMessageBox(string title, string message, MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxIcon icon = MessageBoxIcon.None, bool commandLine = false)
         {
-            var result = MessageBox.Show(message, title, buttons, icon);            
+            var result = MessageBox.Show(message, title, buttons, icon);
             if (commandLine)
                 Environment.Exit((int)result);
         }

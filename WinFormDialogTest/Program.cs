@@ -18,7 +18,7 @@ namespace WinFormDialogTest
             if (args.Count() == 0)
                 Application.Run(new Form1());
             else
-                ParseArgs(args); 
+                ParseArgs(args);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace WinFormDialogTest
             for (int i = 0; i < args.Count(); i++)
             {
                 var key = args[i];
-                var value = args[i+1];
+                var value = args[i + 1];
 
                 if (Params.Contains(key))
                 {
@@ -111,14 +111,14 @@ namespace WinFormDialogTest
                             else
                                 throw new Exception($"MessageBoxButton not found for: '{value}'");
                             break;
-                        case "--icon": 
+                        case "--icon":
                         case "-i":
                             if (AllowedIcons.Contains(value))
                                 icon = Form1.GetEnum<MessageBoxIcon>(value);
                             else
-                                throw new Exception($"MessageBoxIcon not found for: '{value}'");                          
+                                throw new Exception($"MessageBoxIcon not found for: '{value}'");
                             break;
-                        default:                            
+                        default:
                             throw new NotImplementedException($"Paramater `{key}` not implimented!");
                     }
                 }
