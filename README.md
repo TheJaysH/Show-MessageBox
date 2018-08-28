@@ -34,7 +34,7 @@ Also supports command line args
 
 ### Example Usage:
 ```
-WinFormDialogTest.exe --title "Dialog Title" --message "This is a message box" --buttons "YesNo" --icon "Information"
+ShowMessageBox.exe --title "Dialog Title" --message "This is a message box" --buttons "YesNo" --icon "Information"
 ```
 ### Resulting Dialog:
 
