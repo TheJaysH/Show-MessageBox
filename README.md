@@ -7,6 +7,7 @@ Also supports command line args
 ## CommandLine Args
 
 * ```--title, -t```
+  * **REQUIRED**
   * Title of the MessageBox
 * ```--message, -m```
   * Message within the MessageBox 
