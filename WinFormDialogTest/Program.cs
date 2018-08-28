@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinFormDialogTest
@@ -76,7 +73,7 @@ namespace WinFormDialogTest
         {
             if ((args.Count() % 2) != 0)
             {
-                throw new Exception("Please check args!");
+                throw new Exception("Arguments supplied do not have values assigned. Please check arguments.");
             }
 
             var title = string.Empty;
@@ -92,6 +89,11 @@ namespace WinFormDialogTest
 
                 if (Params.Contains(key))
                 {
+                    if (Params.Contains(value))
+                    {
+                        throw new Exception($"{key} requires a valid argument, `{value}` is not valid.");
+                    }
+
                     switch (key)
                     {
                         case "--title":
@@ -116,8 +118,8 @@ namespace WinFormDialogTest
                             else
                                 throw new Exception($"MessageBoxIcon not found for: '{value}'");                          
                             break;
-                        default:
-                            throw new NotImplementedException("Paramater not implimented!");
+                        default:                            
+                            throw new NotImplementedException($"Paramater `{key}` not implimented!");
                     }
                 }
                 else

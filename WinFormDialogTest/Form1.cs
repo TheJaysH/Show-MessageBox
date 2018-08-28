@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinFormDialogTest
@@ -59,28 +51,6 @@ namespace WinFormDialogTest
             var result = MessageBox.Show(message, title, buttons, icon);            
             if (commandLine)
                 Environment.Exit((int)result);
-        }
-
-        /// <summary>
-        /// Takes a string vlaue, and returns that matching enum
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns>MessageBoxButtons</returns>
-        [Obsolete("GetButtons is deprecated, please use GetEnum<TEnum> instead.")]
-        public static MessageBoxButtons GetButtons(string value)
-        {
-            return Enum.TryParse(value, out MessageBoxButtons buttons) ? buttons : MessageBoxButtons.OK;
-        }
-
-        /// <summary>
-        /// Takes a string vlaue, and returns that matching enum
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns>MessageBoxIcon</returns>
-        [Obsolete("GetIcon is deprecated, please use GetEnum<TEnum> instead.")]
-        public static MessageBoxIcon GetIcon(string value)
-        {
-            return Enum.TryParse(value, out MessageBoxIcon icon) ? icon : MessageBoxIcon.None;
         }
 
         /// <summary>
